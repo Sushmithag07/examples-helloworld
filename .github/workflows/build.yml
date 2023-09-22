@@ -4,7 +4,7 @@ jobs:
  sonarqube:
   runs-on: ubuntu-latest
   steps:
-  - uses: actions/checkout@master
+  - uses: actions/checkout@main
     with:
      fetch-depth: 0
    # Setup java 17 to be default (sonar-scanner requirement as of 5.x)
@@ -21,4 +21,4 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Neeeeded to get PR information, if any
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    run: sonar-scanner -X -Dsonar.projectKey=pendulum_lambda_python_scan -Dsonar.sources=. -Dsonar.host.url=http://3.87.178.52:9000 -Dsonar.login=sqp_2f7d50751ff526faa7bbddf42419b3eb522c1ef8
+    run: sonar-scanner -Dsonar.projectKey=python_code_scan -Dsonar.sources=. -Dsonar.host.url=http://3.87.178.52:9000 -Dsonar.login=sqp_2f7d50751ff526faa7bbddf42419b3eb522c1ef8
